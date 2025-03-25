@@ -127,10 +127,10 @@ export default function Home() {
             </div>
             <div>
               <p className="about-text mb-6">
-                The Creator Share Foundation is dedicated to bringing hope and support to special needs children in developing countries, often referred to as the "invisible children." These children endure unimaginable suffering in environments devoid of basic necessities such as water, electricity, and adequate shelter. In addition to the hardships faced by loving families trying to care for them, many of these children experience severe neglect due to economic hardship or cultural beliefs. Tragically, some are confined in dark rooms or restrained, left isolated with no means to call for help. These children may endure such conditions for years, either passing away in their suffering or, by God's grace, being discovered by our team.
+                The Creator Share Foundation is dedicated to bringing hope and support to special needs children in developing countries, often referred to as the &quot;invisible children.&quot; These children endure unimaginable suffering in environments devoid of basic necessities such as water, electricity, and adequate shelter. In addition to the hardships faced by loving families trying to care for them, many of these children experience severe neglect due to economic hardship or cultural beliefs. Tragically, some are confined in dark rooms or restrained, left isolated with no means to call for help. These children may endure such conditions for years, either passing away in their suffering or, by God&apos;s grace, being discovered by our team.
               </p>
               <p className="about-text">
-                Founded by John St. Julien, The Creator Share Foundation is driven by a mission to rescue these vulnerable children and create innovative solutions and infrastructure in the form of our children's villages and homes. Our aim is to extend love, support, healing, and faith to the most marginalized members of our global community.
+                Founded by John St. Julien, The Creator Share Foundation is driven by a mission to rescue these vulnerable children and create innovative solutions and infrastructure in the form of our children&apos;s villages and homes. Our aim is to extend love, support, healing, and faith to the most marginalized members of our global community.
               </p>
               <a href="#" className="read-more">
                 Read More
@@ -157,7 +157,7 @@ export default function Home() {
                 className="w-full h-[250px] object-cover"
               />
               <div className="work-card-content">
-                <h3 className="work-card-title">Feathers Tale Children's Village</h3>
+                <h3 className="work-card-title">Feathers Tale Children&apos;s Village</h3>
                 <p className="card-text">
                   At the core of Feathers Tale are children with special needs and disabilities. Due to the demands of poverty, work and no support, parents with special needs children often have no choice but to leave their children alone whilst they work, and for all neglect can occur intentionally, it also occurs unintentionally with it.
                 </p>
@@ -204,7 +204,7 @@ export default function Home() {
               <div className="work-card-content">
                 <h3 className="work-card-title">Kilimanjaro Animal Rescue</h3>
                 <p className="card-text">
-                  We provide stray street dogs with a home, food and medical costs, if and when needed. We are searching for safe and loving homes for the rescue dogs. We teach about Animal Welfare. We include the Children living in Feathers Tale Children's Village in the care of the Animals. We offer Equine Therapy to special needs children.
+                  We provide stray street dogs with a home, food and medical costs, if and when needed. We are searching for safe and loving homes for the rescue dogs. We teach about Animal Welfare. We include the Children living in Feathers Tale Children&apos;s Village in the care of the Animals. We offer Equine Therapy to special needs children.
                 </p>
                 <a href="#" className="read-more">
                   Read More
@@ -227,7 +227,7 @@ export default function Home() {
               <div className="stats-grid">
                 <div>
                   <div className="stat-number">1000+</div>
-                  <div className="stat-label">Children's Lives Transformed</div>
+                  <div className="stat-label">Children&apos;s Lives Transformed</div>
                 </div>
                 <div>
                   <div className="stat-number">200+</div>
@@ -355,10 +355,10 @@ export default function Home() {
             <div>
               <h4 className="footer-list-title">Our Centers</h4>
               <ul className="footer-list">
-                <li>Feathers Tale Children's Village</li>
+                <li>Feathers Tale Children&apos;s Village</li>
                 <li>Angels Gate Rehabilitation Centre For Street Involved Children</li>
                 <li>Kilimanjaro Animal Rescue</li>
-                <li>New Children's Village, Dodoma</li>
+                <li>New Children&apos;s Village, Dodoma</li>
                 <li>Faith Rehabilitation Center</li>
                 <li>Rainbow Tree Early Childhood Education Center</li>
               </ul>
