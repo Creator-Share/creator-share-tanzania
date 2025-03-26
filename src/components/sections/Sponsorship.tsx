@@ -27,8 +27,8 @@ export default function Sponsorship() {
   return (
     <section className="sponsorship-section">
       <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-2 gap-12 items-center">
-          <div className="sponsorship-card">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="sponsorship-card max-w-2xl mx-auto lg:mx-0 w-full">
             <div className="sponsorship-icons">
               {sponsorshipIcons.map((icon, index) => (
                 <div key={index} className={`icon-item ${icon.isActive ? 'active' : ''}`}>

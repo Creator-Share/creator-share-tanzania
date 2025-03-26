@@ -6,8 +6,8 @@ export default function About() {
     <section className="about-section">
       <div className="max-w-7xl mx-auto px-8">
         <h2 className="section-title">About The Creator Share Foundation</h2>
-        <div className="grid grid-cols-2 gap-12 items-center">
-          <div className="relative">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-12 items-center">
+          <div className="relative mx-auto md:mx-0 w-full max-w-[500px]">
             <Image 
               src="/images/about-foundation.png" 
               alt="Children at Creator Share Foundation" 
