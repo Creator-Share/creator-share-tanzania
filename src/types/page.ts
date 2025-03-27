@@ -1,9 +1,18 @@
+// Define the interface for page data used in navigation
+export interface Page {
+  id: string;
+  title: string;
+  slug: string;
+  status: string;
+}
+
 // Define the types for our page data
 export interface PageData {
   id: string;
   title: string;
   content: string;
-  // Add more fields as needed for your dynamic pages
+  slug: string;
+  status: string;
   featuredImage?: string;
   metaDescription?: string;
   createdAt?: string;

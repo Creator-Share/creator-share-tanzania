@@ -25,7 +25,7 @@ const sponsorshipIcons = [
 
 export default function Sponsorship() {
   return (
-    <section className="sponsorship-section">
+    <section className="sponsorship-section" id="sponsor">
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="sponsorship-card max-w-2xl mx-auto lg:mx-0 w-full">
@@ -44,7 +44,7 @@ export default function Sponsorship() {
             </div>
             <h3 className="text-2xl font-bold mb-4">Share With A Special Needs Child</h3>
             <p className="text-gray-600 mb-6">
-              Sharing your support helps us to provide for the children we have here first and foremost, without people reaching out we simply would not be able to afford the staff, food and medical bills the children require. Nor could 2 of us care for 22 children alone I might add!
+              Sharing your support helps us to provide for the children we have here first and foremost without people reaching out we simply would not be able to afford the staff food and medical bills the children require. Nor could 2 of us care for 22 children alone I might add!
             </p>
             <a href="#" className="learn-more-button">Learn More</a>
           </div>

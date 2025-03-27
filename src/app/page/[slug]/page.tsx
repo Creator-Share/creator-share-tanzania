@@ -1,28 +1,35 @@
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Navigation from '../../../components/Navigation';
 import Footer from '../../../components/Footer';
 import PageContent from '../../../components/PageContent';
-import { getPageById, getAllPageIds } from '../../../services/pageService';
-import { PageData } from '../../../types/page';
+import { getPageBySlug, getAllPageSlugs } from '../../../services/pageService';
 import { Metadata } from 'next';
 
 // This generates static params for static generation
 export async function generateStaticParams() {
-  // Get all page IDs from the service
-  const pageIds = await getAllPageIds();
-  
-  // Return them in the format Next.js expects
-  return pageIds.map(id => ({ id }));
+  try {
+    // Get all page slugs from the service
+    const slugs = await getAllPageSlugs();
+    
+    // Return them in the format Next.js expects
+    return slugs.map((slug) => ({
+      slug: slug
+    }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
 }
 
 // Generate metadata for the page
 export async function generateMetadata({ 
   params 
 }: { 
-  params: { id: string } 
+  params: { slug: string } 
 }): Promise<Metadata> {
   // Get the page data
-  const pageData = await getPageById(params.id);
+  const pageData = await getPageBySlug(params.slug);
   
   // If page doesn't exist, return default metadata
   if (!pageData) {
@@ -44,12 +51,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { slug: string } }) {
+  console.log('Page component: Fetching data for slug:', params.slug);
+  
   // Get the page data from the service
-  const pageData = await getPageById(params.id);
+  const pageData = await getPageBySlug(params.slug);
+  
+  console.log('Page component: Received page data:', pageData);
   
   // If page data doesn't exist, show 404
   if (!pageData) {
+    console.log('Page component: No page data found, showing 404');
     notFound();
   }
   
@@ -61,9 +73,11 @@ export default async function Page({ params }: { params: { id: string } }) {
         <div className="mb-8">
           {pageData.featuredImage && (
             <div className="mb-6">
-              <img 
+              <Image 
                 src={pageData.featuredImage} 
                 alt={pageData.title}
+                width={1200}
+                height={400}
                 className="w-full h-64 object-cover rounded-lg"
               />
             </div>

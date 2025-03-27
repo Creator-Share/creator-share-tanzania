@@ -12,7 +12,7 @@ const DEFAULT_TIMEOUT = 10000;
 interface RequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
   headers?: Record<string, string>;
-  body?: any;
+  body?: unknown;
   timeout?: number;
   cache?: RequestCache;
 }
@@ -87,15 +87,14 @@ export async function apiRequest<T>(
       message: response.ok ? 'Success' : data.message || response.statusText,
       statusCode: response.status
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Handle errors
-    const isTimeout = error.name === 'AbortError';
+    const isTimeout = error instanceof Error && error.name === 'AbortError';
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
     return {
       data: null,
       success: false,
-      message: isTimeout
-        ? `Request timed out after ${timeout}ms`
-        : error.message || 'An unknown error occurred',
+      message: isTimeout ? `Request timed out after ${timeout}ms` : errorMessage,
       statusCode: isTimeout ? 408 : 500
     };
   }
@@ -120,7 +119,7 @@ export function get<T>(endpoint: string, options: Omit<RequestOptions, 'method'>
  */
 export function post<T>(
   endpoint: string,
-  body: any,
+  body: unknown,
   options: Omit<RequestOptions, 'method' | 'body'> = {}
 ) {
   return apiRequest<T>(endpoint, { ...options, method: 'POST', body });
@@ -135,7 +134,7 @@ export function post<T>(
  */
 export function put<T>(
   endpoint: string,
-  body: any,
+  body: unknown,
   options: Omit<RequestOptions, 'method' | 'body'> = {}
 ) {
   return apiRequest<T>(endpoint, { ...options, method: 'PUT', body });
@@ -160,7 +159,7 @@ export function del<T>(endpoint: string, options: Omit<RequestOptions, 'method'>
  */
 export function patch<T>(
   endpoint: string,
-  body: any,
+  body: unknown,
   options: Omit<RequestOptions, 'method' | 'body'> = {}
 ) {
   return apiRequest<T>(endpoint, { ...options, method: 'PATCH', body });

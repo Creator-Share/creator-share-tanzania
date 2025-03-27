@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server';
-import { getDirectusPageBySlug, processDirectusPage } from '../../../../../services/directusService';
+import { getDirectusPageBySlug, processDirectusPage } from '../../../../services/directusService';
+import type { NextRequest } from 'next/server';
 
-// GET handler for /api/directus/pages/[slug]
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { slug: string } }
 ) {
   try {
     // Get the slug from the URL params
-    const slug = params.slug;
+    const { slug } = params;
     console.log(`API route: Fetching page with slug: ${slug}`);
     
     // Get the page from Directus
@@ -28,26 +28,21 @@ export async function GET(
     // Process the page to resolve file URLs and other references
     const processedPage = await processDirectusPage(page);
     
-    // Log the processed page details
-    console.log(`API route: Processed page: ${processedPage.title}`);
-    console.log(`API route: Processed page slug: ${processedPage.slug || 'none'}`);
-    console.log(`API route: Processed page ID: ${processedPage.id}`);
-    
     // Return the page as JSON
     return NextResponse.json({
       id: processedPage.id,
       title: processedPage.title,
       slug: processedPage.slug,
       content: processedPage.content,
-      featured_image: processedPage.featured_image,
-      meta_description: processedPage.meta_description,
+      featuredImage: processedPage.featured_image,
+      metaDescription: processedPage.meta_description,
       tags: processedPage.tags,
       status: processedPage.status,
-      date_created: processedPage.date_created,
-      date_updated: processedPage.date_updated
+      createdAt: processedPage.date_created,
+      updatedAt: processedPage.date_updated
     });
   } catch (error) {
-    console.error(`Error fetching Directus page with slug ${params.slug}:`, error);
+    console.error(`Error fetching page with slug ${params.slug}:`, error);
     
     // Return an error response
     return NextResponse.json(

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noEmitOnError": false, // Allow compilation even with type errors
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,

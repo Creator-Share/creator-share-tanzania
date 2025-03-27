@@ -21,7 +21,7 @@ export interface DirectusPage extends DirectusItem {
     title?: string;
     no_index?: boolean;
     meta_description?: string;
-    [key: string]: any;
+    [key: string]: string | boolean | undefined;
   };
   blocks?: string[] | DirectusBlock[];
   featured_image?: DirectusFile | string;
@@ -36,7 +36,19 @@ export interface DirectusBlock extends DirectusItem {
   item: string;
   type?: string;
   content?: string;
-  [key: string]: any;
+  referencedItem?: {
+    content?: string;
+    text?: string;
+    body?: string;
+    headline?: string;
+    tagline?: string;
+    description?: string;
+    title?: string;
+    image?: string;
+    items?: unknown[];
+    [key: string]: unknown;
+  };
+  [key: string]: unknown;
 }
 
 // Directus file type
@@ -51,7 +63,7 @@ export interface DirectusFile extends DirectusItem {
   height?: number;
   filesize?: number;
   location?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 // Directus tag type

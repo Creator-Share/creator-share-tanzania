@@ -1,5 +1,6 @@
 import {
   DirectusPage,
+  DirectusBlock,
   DirectusItemResponse,
   DirectusItemsResponse,
   DirectusErrorResponse
@@ -56,9 +57,9 @@ async function authenticateWithDirectus(): Promise<string> {
 
     const data = await response.json();
     return data.data.access_token;
-  } catch (error) {
-    console.error('Directus authentication failed:', error);
-    throw error;
+  } catch (authError) {
+    console.error('Directus authentication failed:', authError);
+    throw authError;
   }
 }
 
@@ -85,9 +86,9 @@ async function directusRequest<T>(
   if (!accessToken && DIRECTUS_EMAIL && DIRECTUS_PASSWORD) {
     try {
       accessToken = await authenticateWithDirectus();
-    } catch (error) {
-      console.error('Failed to authenticate with Directus:', error);
-      throw error;
+    } catch (authError) {
+      console.error('Failed to authenticate with Directus:', authError);
+      throw authError;
     }
   }
 
@@ -154,14 +155,14 @@ async function directusRequest<T>(
     }
 
     return await response.json() as T;
-  } catch (error) {
-    console.error('Directus API request failed:', error);
-    throw error;
+  } catch (requestError) {
+    console.error('Directus API request failed:', requestError);
+    throw requestError;
   }
 }
 
 // Store a mapping of slugs to page IDs
-let slugToIdMap: Record<string, string> = {};
+const slugToIdMap: Record<string, string> = {};
 
 /**
  * Get all published pages from Directus
@@ -202,8 +203,8 @@ export async function getDirectusPages(): Promise<DirectusPage[]> {
 
     // Filter out non-published pages if needed
     return processedPages.filter(page => page.status === 'published' || !page.status);
-  } catch (error) {
-    console.error('Failed to fetch Directus pages:', error);
+  } catch (fetchError) {
+    console.error('Failed to fetch Directus pages:', fetchError);
     return [];
   }
 }
@@ -232,8 +233,8 @@ export async function fetchDirectusPagesBySlug(slug: string): Promise<DirectusPa
     
     // Filter out non-published pages if needed
     return response.data.filter(page => page.status === 'published' || !page.status);
-  } catch (error) {
-    console.error(`Failed to fetch Directus pages with slug ${slug}:`, error);
+  } catch (fetchError) {
+    console.error(`Failed to fetch Directus pages with slug ${slug}:`, fetchError);
     return [];
   }
 }
@@ -278,8 +279,8 @@ export async function getDirectusPageBySlug(slug: string): Promise<DirectusPage 
       return page;
     }
     return null;
-  } catch (error) {
-    console.error(`Failed to fetch Directus page with slug ${slug}:`, error);
+  } catch (fetchError) {
+    console.error(`Failed to fetch Directus page with slug ${slug}:`, fetchError);
     return null;
   }
 }
@@ -308,8 +309,8 @@ export async function getDirectusPageById(id: string): Promise<DirectusPage | nu
 
     // Only return published pages
     return response.data.status === 'published' ? response.data : null;
-  } catch (error) {
-    console.error(`Failed to fetch Directus page with ID ${id}:`, error);
+  } catch (fetchError) {
+    console.error(`Failed to fetch Directus page with ID ${id}:`, fetchError);
     return null;
   }
 }
@@ -337,7 +338,7 @@ export function getDirectusFileUrl(fileId: string): string {
  * @param id The block ID
  * @returns Promise with the block data or null if not found
  */
-export async function getDirectusBlockById(id: string): Promise<any | null> {
+export async function getDirectusBlockById(id: string): Promise<DirectusBlock | null> {
   try {
     // If Directus is not configured, return null
     if (!isDirectusConfigured) {
@@ -351,7 +352,7 @@ export async function getDirectusBlockById(id: string): Promise<any | null> {
     
     for (const collection of collections) {
       try {
-        const response = await directusRequest<DirectusItemResponse<any>>(
+        const response = await directusRequest<DirectusItemResponse<DirectusBlock>>(
           `${collection}/${id}`,
           {
             method: 'GET',
@@ -365,7 +366,7 @@ export async function getDirectusBlockById(id: string): Promise<any | null> {
             
             // Fetch the referenced item
             try {
-              const referencedItem = await directusRequest<DirectusItemResponse<any>>(
+              const referencedItem = await directusRequest<DirectusItemResponse<DirectusBlock>>(
                 `${response.data.collection}/${response.data.item}`,
                 {
                   method: 'GET',
@@ -387,7 +388,7 @@ export async function getDirectusBlockById(id: string): Promise<any | null> {
           
           return response.data;
         }
-      } catch (error) {
+      } catch {
         // Continue to the next collection if this one fails
       }
     }
@@ -434,14 +435,14 @@ export async function getDirectusBlockById(id: string): Promise<any | null> {
         
         return data.data;
       }
-    } catch (error) {
-      console.error(`Failed to fetch block with direct request:`, error);
+    } catch (directRequestError) {
+      console.error(`Failed to fetch block with direct request:`, directRequestError);
     }
     
     console.error(`Block with ID ${id} not found in any collection`);
     return null;
-  } catch (error) {
-    console.error(`Failed to fetch Directus block with ID ${id}:`, error);
+  } catch (fetchError) {
+    console.error(`Failed to fetch Directus block with ID ${id}:`, fetchError);
     return null;
   }
 }
@@ -451,7 +452,7 @@ export async function getDirectusBlockById(id: string): Promise<any | null> {
  * @param blocks The blocks to process
  * @returns HTML content as a string
  */
-async function processBlocks(blocks: string[] | any[]): Promise<string> {
+async function processBlocks(blocks: string[] | DirectusBlock[]): Promise<string> {
   if (!blocks || blocks.length === 0) {
     return '';
   }
@@ -480,13 +481,13 @@ async function processBlocks(blocks: string[] | any[]): Promise<string> {
  * @param block The block to process
  * @returns HTML content as a string
  */
-async function processBlockContent(block: any): Promise<string> {
+async function processBlockContent(block: DirectusBlock): Promise<string> {
   if (!block) return '';
   
   // If the block has collection and item fields but no referencedItem yet, fetch it
   if (block.collection && block.item && !block.referencedItem) {
     try {
-      const referencedItem = await directusRequest<DirectusItemResponse<any>>(
+      const referencedItem = await directusRequest<DirectusItemResponse<DirectusBlock>>(
         `${block.collection}/${block.item}`,
         {
           method: 'GET',
@@ -497,8 +498,8 @@ async function processBlockContent(block: any): Promise<string> {
       if (referencedItem && referencedItem.data) {
         block.referencedItem = referencedItem.data;
       }
-    } catch (error) {
-      console.error(`Failed to fetch referenced item ${block.collection}/${block.item}:`, error);
+    } catch (fetchError) {
+      console.error(`Failed to fetch referenced item ${block.collection}/${block.item}:`, fetchError);
     }
   }
   
@@ -526,8 +527,8 @@ async function processBlockContent(block: any): Promise<string> {
         if (block.referencedItem.content && typeof block.referencedItem.content === 'object') {
           try {
             return JSON.stringify(block.referencedItem.content);
-          } catch (error) {
-            console.error('Error stringifying content object:', error);
+          } catch (stringifyError) {
+            console.error('Error stringifying content object:', stringifyError);
           }
         }
         break;
@@ -645,8 +646,8 @@ async function processBlockContent(block: any): Promise<string> {
       <h3 class="font-medium mb-2">Block Data</h3>
       <pre class="bg-gray-100 p-2 rounded text-sm overflow-auto">${JSON.stringify(block, null, 2)}</pre>
     </div>`;
-  } catch (error) {
-    console.error('Error stringifying block:', error);
+  } catch (stringifyError) {
+    console.error('Error stringifying block:', stringifyError);
     return '<p>Error processing block content</p>';
   }
 }
@@ -686,8 +687,8 @@ export async function processDirectusPage(page: DirectusPage): Promise<DirectusP
     if (typeof processedPage.content === 'string') {
       // Content is already a string, no conversion needed
     } else if (typeof processedPage.content === 'object') {
-      // Cast content to any to handle dynamic properties
-      const contentObj = processedPage.content as any;
+      // Cast content to DirectusBlock to handle dynamic properties
+      const contentObj = processedPage.content as DirectusBlock;
       
       // Check if it's a block reference (has collection and item fields)
       if (contentObj && contentObj.collection && contentObj.item) {
@@ -700,8 +701,8 @@ export async function processDirectusPage(page: DirectusPage): Promise<DirectusP
             console.error('Failed to process block content');
             processedPage.content = '';
           }
-        } catch (error) {
-          console.error('Error processing block content:', error);
+        } catch (processError) {
+          console.error('Error processing block content:', processError);
           processedPage.content = '';
         }
       }
@@ -717,15 +718,15 @@ export async function processDirectusPage(page: DirectusPage): Promise<DirectusP
           // If content is an array, try to process it as blocks
           try {
             processedPage.content = await processBlocks(contentObj.content);
-          } catch (error) {
-            console.error('Error processing content array as blocks:', error);
+          } catch (processError) {
+            console.error('Error processing content array as blocks:', processError);
             processedPage.content = '';
           }
         } else {
           try {
             processedPage.content = JSON.stringify(contentObj.content);
-          } catch (error) {
-            console.error('Error converting content.content to string:', error);
+          } catch (stringifyError) {
+            console.error('Error converting content.content to string:', stringifyError);
             processedPage.content = '';
           }
         }
@@ -739,8 +740,8 @@ export async function processDirectusPage(page: DirectusPage): Promise<DirectusP
           } else {
             processedPage.content = JSON.stringify(processedPage.content);
           }
-        } catch (error) {
-          console.error('Error processing content:', error);
+        } catch (processError) {
+          console.error('Error processing content:', processError);
           processedPage.content = '';
         }
       }
@@ -750,8 +751,8 @@ export async function processDirectusPage(page: DirectusPage): Promise<DirectusP
   else if (processedPage.blocks && Array.isArray(processedPage.blocks)) {
     try {
       processedPage.content = await processBlocks(processedPage.blocks);
-    } catch (error) {
-      console.error('Error processing blocks:', error);
+    } catch (processError) {
+      console.error('Error processing blocks:', processError);
       processedPage.content = '';
     }
   }
