@@ -24,9 +24,9 @@ export default function PageLinks() {
         console.error('Error fetching pages:', error);
         // Fallback to some default pages if the API fails
         setPages([
-          { id: 'about-us', title: 'About Us', content: '' },
-          { id: 'our-mission', title: 'Our Mission', content: '' },
-          { id: 'our-work', title: 'Our Work', content: '' }
+          { id: 'about-us', title: 'About Us', content: '', slug: 'about-us', status: 'published' },
+          { id: 'our-mission', title: 'Our Mission', content: '', slug: 'our-mission', status: 'published' },
+          { id: 'our-work', title: 'Our Work', content: '', slug: 'our-work', status: 'published' }
         ]);
       } finally {
         setIsLoading(false);

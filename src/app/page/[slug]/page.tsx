@@ -26,10 +26,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ 
   params 
 }: { 
-  params: { slug: string } 
+  params: Promise<{ slug: string }> 
 }): Promise<Metadata> {
   // Get the page data
-  const pageData = await getPageBySlug(params.slug);
+  const { slug } = await params;
+  const pageData = await getPageBySlug(slug);
   
   // If page doesn't exist, return default metadata
   if (!pageData) {
@@ -51,11 +52,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  console.log('Page component: Fetching data for slug:', params.slug);
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  console.log('Page component: Fetching data for slug:', slug);
   
   // Get the page data from the service
-  const pageData = await getPageBySlug(params.slug);
+  const pageData = await getPageBySlug(slug);
   
   console.log('Page component: Received page data:', pageData);
   

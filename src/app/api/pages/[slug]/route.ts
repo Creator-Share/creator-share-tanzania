@@ -4,11 +4,11 @@ import type { NextRequest } from 'next/server';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
     // Get the slug from the URL params
-    const { slug } = params;
+    const { slug } = await params;
     console.log(`API route: Fetching page with slug: ${slug}`);
     
     // Get the page from Directus
@@ -42,7 +42,7 @@ export async function GET(
       updatedAt: processedPage.date_updated
     });
   } catch (error) {
-    console.error(`Error fetching page with slug ${params.slug}:`, error);
+    console.error(`Error fetching page with slug ${(await params).slug}:`, error);
     
     // Return an error response
     return NextResponse.json(
