@@ -2,7 +2,8 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <main className="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <section className="py-16 w-full">
+      <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
       <div className="text-center lg:text-left">
         <h1>
           <span className="hero-title">Sharing Love, Hope and Safety:</span>
@@ -29,6 +30,7 @@ export default function Hero() {
           className="rounded-[2rem] object-cover"
         />
       </div>
-    </main>
+      </div>
+    </section>
   );
 }

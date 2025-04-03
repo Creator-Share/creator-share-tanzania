@@ -15,16 +15,16 @@ export function Providers({ children }: { children: React.ReactNode }) {
   }));
 
   return (
-    <ChakraProvider value={defaultSystem}>
-      <ThemeProvider
-        attribute="class"
-        disableTransitionOnChange
-        defaultTheme="light"
-      >
-        <QueryClientProvider client={queryClient}>
+    <ThemeProvider
+      attribute="class"
+      disableTransitionOnChange
+      defaultTheme="light"
+    >
+      <QueryClientProvider client={queryClient}>
+        <div className="w-full">
           {children}
-        </QueryClientProvider>
-      </ThemeProvider>
-    </ChakraProvider>
+        </div>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
