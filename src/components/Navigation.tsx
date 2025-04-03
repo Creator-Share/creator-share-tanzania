@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Navigation() {
@@ -10,13 +11,15 @@ export default function Navigation() {
     <nav className="relative px-8 py-4 max-w-7xl mx-auto">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Image
-            src="/creator-text.svg"
-            alt="Creator Share Logo"
-            width={140}
-            height={40}
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/creator-text.svg"
+              alt="Creator Share Logo"
+              width={140}
+              height={40}
+              priority
+            />
+          </Link>
         </div>
         
         {/* Mobile menu button */}
@@ -44,23 +47,21 @@ export default function Navigation() {
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#about" className="nav-link">About Us</a>
-          <a href="#work" className="nav-link">Our Work</a>
-          <a href="#share" className="nav-link">Ways to Share</a>
-          <a href="#sponsor" className="nav-link">Sponsorship</a>
-          <a href="#partner" className="nav-link">Partnership</a>
-          <a href="/donate" className="donate-button">Donate</a>
+          <Link href="/#about" className="nav-link">About Us</Link>
+          <Link href="/#work" className="nav-link">Our Work</Link>
+          <Link href="/#share" className="nav-link">Ways to Share</Link>
+          <Link href="/sponsor-a-child" className="nav-link">Sponsor a Child</Link>
+          <Link href="/donate" className="donate-button">Donate</Link>
         </div>
       </div>
 
       {/* Mobile menu */}
       <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:hidden flex-col gap-4 absolute left-0 right-0 top-full bg-white shadow-lg p-4 mt-2`}>
-        <a href="#about" className="nav-link block py-2">About Us</a>
-        <a href="#work" className="nav-link block py-2">Our Work</a>
-        <a href="#share" className="nav-link block py-2">Ways to Share</a>
-        <a href="#sponsor" className="nav-link block py-2">Sponsorship</a>
-        <a href="#partner" className="nav-link block py-2">Partnership</a>
-        <a href="/donate" className="donate-button inline-block mt-2">Donate</a>
+        <Link href="/#about" className="nav-link block py-2">About Us</Link>
+        <Link href="/#work" className="nav-link block py-2">Our Work</Link>
+        <Link href="/#share" className="nav-link block py-2">Ways to Share</Link>
+        <Link href="/sponsor-a-child" className="nav-link block py-2">Sponsor a Child</Link>
+        <Link href="/donate" className="donate-button inline-block mt-2">Donate</Link>
       </div>
     </nav>
   );

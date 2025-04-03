@@ -3,7 +3,7 @@ import ReadMoreLink from "../ReadMoreLink";
 
 export default function About() {
   return (
-    <section className="about-section">
+    <section id="about" className="about-section">
       <div className="max-w-7xl mx-auto px-8">
         <h2 className="section-title">About The Creator Share Foundation</h2>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-12 items-center">

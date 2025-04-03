@@ -27,7 +27,7 @@ const workItems = [
 
 export default function OurWork() {
   return (
-    <section className="work-section">
+    <section id="work" className="work-section">
       <div className="max-w-7xl mx-auto px-8">
         <h2 className="section-title">Our Work</h2>
         <div className="work-grid">
