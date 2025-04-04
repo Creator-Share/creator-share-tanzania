@@ -179,7 +179,7 @@ const SponsorDialog: React.FC<SponsorDialogProps> = ({ people, trigger = false }
         }
         return (
             <>
-                Your sponsorship will be applied towards the child's monthly budget goals.
+                Your sponsorship will be applied towards the child&apos;s monthly budget goals.
                 {selectedOption === "payment" && (
                     <>
                         <br />

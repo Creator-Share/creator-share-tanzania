@@ -1,3 +1,4 @@
+import "../styles/landing-page.css";
 import Hero from "../components/sections/Hero";
 import WaysToShare from "../components/sections/WaysToShare";
 import About from "../components/sections/About";
@@ -8,14 +9,16 @@ import DonorSection from "../components/DonorSection";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Hero />
-      <WaysToShare />
-      <About />
-      <OurWork />
-      <Statistics />
-      <Sponsorship />
-      <DonorSection />
+    <div className="landing-page">
+      <div className="min-h-screen">
+        <Hero />
+        <WaysToShare />
+        <About />
+        <OurWork />
+        <Statistics />
+        <Sponsorship />
+        <DonorSection />
+      </div>
     </div>
   );
 }
