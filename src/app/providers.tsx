@@ -3,28 +3,23 @@
 import { useState } from "react";
 import { ThemeProvider } from "next-themes";
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  const [queryClient] = useState(() => new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 60 * 1000, // 1 minute
-      },
-    },
-  }));
+  const [queryClient] = useState(() => new QueryClient());
 
   return (
-    <ThemeProvider
-      attribute="class"
-      disableTransitionOnChange
-      defaultTheme="light"
-    >
-      <QueryClientProvider client={queryClient}>
-        <div className="w-full">
+    <ChakraProvider value={defaultSystem}>
+      <ThemeProvider
+        attribute="class"
+        disableTransitionOnChange
+        defaultTheme="light"
+      >
+        <QueryClientProvider client={queryClient}>
           {children}
-        </div>
-      </QueryClientProvider>
-    </ThemeProvider>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </ChakraProvider>
   );
 }
