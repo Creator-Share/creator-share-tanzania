@@ -16,9 +16,7 @@ const ChildMap = dynamic(() => import('./components/ChildMap'), {
 // These components can be rendered on server but may need client interactivity
 const Filters = dynamic(() => import('./components/Filters'));
 const ChildListings = dynamic(() => import('./components/ChildListings'));
-const ChildListingsSkeleton = dynamic(() => 
-  import('./components/ChildListings/Skeleton').then(mod => mod.ChildListingsSkeleton)
-);
+const ChildListingsSkeleton = dynamic(() => import('./components/ChildListings/Skeleton'));
 
 interface Filters {
   gender: string;
