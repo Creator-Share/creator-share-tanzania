@@ -12,5 +12,10 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
+eslintConfig.push({
+  rules: {
+    '@next/next/no-duplicate-head': 'off',
+  },
+});
 
 export default eslintConfig;
