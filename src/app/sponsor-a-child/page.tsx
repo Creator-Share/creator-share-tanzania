@@ -249,13 +249,13 @@ const SponsorChild = () => {
         </Text>
       )}
 
-      <Flex 
-        width="100%" 
+      <Flex
+        width="100%"
         direction={{ base: "column", md: "row" }}
         gap={{ base: 0, md: 4 }}
         position="relative"
       >
-        <Box 
+        <Box
           flex="1"
           position="sticky"
           top="20px"
@@ -270,10 +270,10 @@ const SponsorChild = () => {
             onFilterChange={handleFilterChange}
           />
           
-          <Box 
-            position="absolute" 
-            bottom={12} 
-            right={4} 
+          <Box
+            position="absolute"
+            bottom={12}
+            right={4}
             zIndex={1000}
             className="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl p-2 shadow-md"
           >
