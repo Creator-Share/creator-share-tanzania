@@ -14,7 +14,7 @@ export default function Hero() {
           Every child deserves a childhood. Together, we can end the suffering of special needs, homeless and child laboring children, living in crisis...
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-          <a href="/sponsor-a-child" className="sponsor-button">Sponsor a child</a>
+          <a href="/donate" className="sponsor-button">Donate</a>
           {/* <a href="/donate" className="donate-button">Donate</a> */}
         </div>
         <div className="flex items-center gap-2 mt-8 justify-center lg:justify-start">

@@ -50,7 +50,7 @@ export default function Navigation() {
           <Link href="/#about" className="nav-link">About Us</Link>
           <Link href="/#work" className="nav-link">Our Work</Link>
           <Link href="/#share" className="nav-link">Ways to Share</Link>
-          <Link href="/sponsor-a-child" className="nav-link">Sponsor a Child</Link>
+          {/* <Link href="/sponsor-a-child" className="nav-link">Sponsor a Child</Link> */}
           <Link href="/donate" className="donate-button">Donate</Link>
         </div>
       </div>
