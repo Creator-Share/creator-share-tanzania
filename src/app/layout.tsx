@@ -3,7 +3,7 @@ import { Saira } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Providers } from "./providers";
+import ClientProviders from "./ClientProviders";
 
 const saira = Saira({
   subsets: ["latin"],
@@ -24,11 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${saira.variable} antialiased`}>
-        <Providers>
+        <ClientProviders>
           <Navigation />
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</main>
           <Footer />
-        </Providers>
+        </ClientProviders>
       </body>
     </html>
   );

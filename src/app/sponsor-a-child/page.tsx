@@ -225,12 +225,14 @@ const SponsorChild = () => {
   }, [sendHeight]);
 
   return (
-    <Box 
+    <Box
       ref={contentRef}
       className="flex flex-col items-center justify-center px-4 md:px-32 py-12 md:py-16"
     >
       <Box className="text-center justify-center my-12">
-        <Text className="text-[#1C3C8C] font-semibold text-5xl mb-4">
+        <Text
+          className="text-[#1C3C8C] font-semibold text-5xl mb-4"
+        >
           Sponsoring a Child with Creator Share
         </Text>
         <Text className="text-base font-normal text-[#03150E99]">
