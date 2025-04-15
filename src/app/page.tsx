@@ -4,7 +4,7 @@ import WaysToShare from "../components/sections/WaysToShare";
 import About from "../components/sections/About";
 import OurWork from "../components/sections/OurWork";
 import Masterplan from "../components/sections/Masterplan";
-// import Statistics from "../components/sections/Statistics";
+import Statistics from "../components/sections/Statistics";
 import Sponsorship from "../components/sections/Sponsorship";
 import DonorSection from "../components/DonorSection";
 import Image from "next/image";
@@ -18,6 +18,7 @@ export default function Home() {
         <About />
         <OurWork />
         <Masterplan />
+        <Statistics />
         <Sponsorship />
         <div className="w-full mt-28 ">
           <Image

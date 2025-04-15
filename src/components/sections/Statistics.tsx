@@ -1,4 +1,7 @@
 
+import React from 'react';
+import Image from 'next/image';
+
 const stats = [
   {
     number: "1000+",
@@ -20,11 +23,11 @@ const stats = [
 
 export default function Statistics() {
   return (
-    <section className="stats-section">
+    <section className="stats-section w-full bg-[#F5F9FF]">
       <div className="max-w-7xl mx-auto px-8">
         <div className="stats-container">
           <div>
-            <h2 className="stats-title text-yellow-500">Sharing can, and does, change lives</h2>
+            <h2 className="stats-title font-bold mb-10 text-[#FFB700] text-center">Sharing can, and does, change lives</h2>
             <div className="stats-grid">
               {stats.map((stat, index) => (
                 <div key={index}>
@@ -34,20 +37,16 @@ export default function Statistics() {
               ))}
             </div>
           </div>
-          <div
-            style={{
-              width: 400,
-              height: 300,
-              background: "#e0e0e0",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "2rem"
-            }}
-          >
-            <span style={{ color: "#888", fontSize: "1.1rem", textAlign: "center" }}>
-              [Tanzania map placeholder – to be replaced]
-            </span>
+          <div className="w-full flex justify-center items-center">
+            <div className="relative w-full max-w-[525px] h-[584px] aspect-[5/3] overflow-hidden flex items-center justify-center">
+              <Image
+                src="/images/tanzania-map.png"
+                alt="Tanzania map"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
       </div>

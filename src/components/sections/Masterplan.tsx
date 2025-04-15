@@ -28,39 +28,6 @@ export default function Masterplan() {
         </div>
       </div>
       {/* Combined Stats/Map Section */}
-      <div className="max-w-7xl mx-auto px-8 mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 className="text-4xl font-bold mb-10 text-[#FFB700] text-center">Sharing can, and does, change lives</h2>
-          <div className="grid grid-cols-2 gap-x-8 gap-y-12">
-            <div>
-              <div className="text-5xl font-bold text-blue-700 mb-3">1000+</div>
-              <div className="text-lg text-gray-700">Children’s Lives Transformed</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-blue-700 mb-3">200+</div>
-              <div className="text-lg text-gray-700">Special Needs Children Living With Us</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-blue-700 mb-3">250+</div>
-              <div className="text-lg text-gray-700">Children In Our Care</div>
-            </div>
-            <div>
-              <div className="text-5xl font-bold text-blue-700 mb-3">150+</div>
-              <div className="text-lg text-gray-700">Rescue Puppies living with us</div>
-            </div>
-          </div>
-        </div>
-        <div className="w-full flex justify-center items-center">
-          <div className="relative w-full max-w-[500px] rounded-[2rem] overflow-hidden flex items-center justify-center">
-            <Image
-              src="/images/tanzania-map.png"
-              alt="Tanzania map"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </div>
     </section>
   );
 }
