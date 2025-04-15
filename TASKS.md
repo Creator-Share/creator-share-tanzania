@@ -55,6 +55,8 @@ This file tracks all major tasks, features, and improvements for the Creator Sha
 | Task                                              | Status        | Notes                                  |
 |---------------------------------------------------|---------------|----------------------------------------|
 | Responsive design                                 | 🟢 To Do       | Mobile-first                           |
+| Replace all placeholder images on redesigned home page (Hero, About, Our Work, Masterplan, Statistics, Sponsorship) | 🟢 To Do | List: Hero section main image, About section collage images, Our Work section images, Masterplan section images (group photo, map, etc.), Statistics section map image, Sponsorship section image |
+| Adjust height of sharing section on home page | 🟢 To Do | Ensure the WaysToShare section height is visually balanced |
 
 ---
 

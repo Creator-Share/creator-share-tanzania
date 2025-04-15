@@ -15,19 +15,19 @@ export default function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           <a href="/donate" className="sponsor-button">Donate</a>
-          {/* <a href="/donate" className="donate-button">Donate</a> */}
-        </div>
-        <div className="flex items-center gap-2 mt-8 justify-center lg:justify-start">
-          <span className="donor-count">1200+ Donors on board</span>
         </div>
       </div>
       <div className="relative max-w-xl mx-auto lg:mx-0">
         <Image
           src="/images/hero-main.png"
-          alt="Hero image"
+          alt="Children group photo"
           width={600}
-          height={700}
-          className="rounded-[2rem] object-cover"
+          height={400}
+          style={{
+            borderRadius: "2rem",
+            objectFit: "cover"
+          }}
+          priority
         />
       </div>
       </div>

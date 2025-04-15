@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={`${saira.variable} antialiased`}>
         <ClientProviders>
           <Navigation />
-          <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{children}</main>
+          <main>{children}</main>
           <Footer />
         </ClientProviders>
       </body>

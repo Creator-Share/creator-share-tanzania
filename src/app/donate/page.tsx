@@ -8,8 +8,8 @@ const Card = ({ children, className = "" }: { children: React.ReactNode; classNa
 
 const DonatePage = () => {
   return (
-    <div className="min-h-screen bg-[#F7F9FB] py-12 md:py-16 px-2 md:px-0">
-      <div className="max-w-3xl mx-auto">
+    <div className="landing-page min-h-screen bg-[#F7F9FB] py-12 md:py-16 px-2 md:px-0">
+      <div className="max-w-6xl mx-auto w-full px-4">
         {/* Header Section */}
         <div className="mb-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#5486F7] leading-tight mb-2 text-left md:text-left">

@@ -49,7 +49,6 @@ const SponsorChild = () => {
   }, []);
 
   const handleFilterChange = React.useCallback((newFilters: Partial<Filters>) => {
-    // Update filters
     setFilters(prev => ({ ...prev, ...newFilters }));
   }, []);
 

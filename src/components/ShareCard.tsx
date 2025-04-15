@@ -8,7 +8,7 @@ interface ShareCardProps {
 
 export default function ShareCard({ iconSrc, title, description }: ShareCardProps) {
   return (
-    <div className="bg-[#f6f9f8] rounded-[24px] p-8 shadow-md text-center">
+    <div className="bg-[#f6f9f8] rounded-[24px] p-8 shadow-md text-center min-h-[420px] flex flex-col justify-start">
       <Image
         src={iconSrc}
         alt={`${title} Icon`}

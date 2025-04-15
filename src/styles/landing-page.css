@@ -1,5 +1,5 @@
 :root {
-  --primary-blue: #4169E1;
+  --primary-blue: #1C3C8C;
   --text-dark: #171717;
   --text-gray: #666666;
   --background: #ffffff;
@@ -120,9 +120,9 @@ body {
 }
 
 .landing-page .section-title {
-  font-size: 42px;
+  font-size: 55px; /* Updated font size */
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--primary-blue); /* Updated color */
   text-align: center;
   margin-bottom: 48px;
 }

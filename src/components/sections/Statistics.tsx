@@ -15,7 +15,7 @@ const stats = [
   },
   {
     number: "150+",
-    label: "Rescue Dogs living with us"
+    label: "Rescue Puppies living with us"
   }
 ];
 
@@ -25,7 +25,7 @@ export default function Statistics() {
       <div className="max-w-7xl mx-auto px-8">
         <div className="stats-container">
           <div>
-            <h2 className="stats-title">Sharing can, and does, change lives</h2>
+            <h2 className="stats-title text-yellow-500">Sharing can, and does, change lives</h2>
             <div className="stats-grid">
               {stats.map((stat, index) => (
                 <div key={index}>
@@ -35,13 +35,21 @@ export default function Statistics() {
               ))}
             </div>
           </div>
-          <Image
-            src="/images/tanzania-map.png"
-            alt="Tanzania Map"
-            width={400}
-            height={400}
-            className="tanzania-map"
-          />
+          <div
+            style={{
+              width: 400,
+              height: 300,
+              background: "#e0e0e0",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "2rem"
+            }}
+          >
+            <span style={{ color: "#888", fontSize: "1.1rem", textAlign: "center" }}>
+              [Tanzania map placeholder – to be replaced]
+            </span>
+          </div>
         </div>
       </div>
     </section>
