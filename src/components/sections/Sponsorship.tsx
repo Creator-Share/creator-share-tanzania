@@ -33,10 +33,10 @@ export default function Sponsorship() {
         backgroundSize: '100% auto',
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex"> {/* Centered, responsive padding */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex">
         {/* Content Card */}
-        <div className="sponsorship-card mt-32 md:mt-72 bg-white rounded-2xl shadow-xl p-8 max-w-2xl w-full"> {/* Responsive top margin */}
-          <div className="sponsorship-icons flex flex-wrap justify-start gap-4 mb-6"> {/* Changed justify-between to justify-start */}
+        <div className="sponsorship-card bg-white rounded-2xl shadow-xl max-w-2xl w-full">
+          <div className="sponsorship-icons flex flex-wrap justify-start gap-4 mb-6">
             {sponsorshipIcons.map((icon, index) => (
               <div key={index} className={`icon-item flex items-center gap-2 p-2 rounded ${icon.isActive ? 'bg-blue-100' : ''}`}>
                 <Image

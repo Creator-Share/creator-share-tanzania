@@ -22,9 +22,9 @@ export default function Masterplan() {
           <p className="mb-6 text-lg text-gray-700">
             We are building the largest children’s village in Tanzania – a blueprint designed especially for children with special needs, replicable in and around East Africa. With space for up to 500 children, this new village will provide safe homes, therapeutic care, inclusive education, and a sustainable food farm. It’s more than a village – it’s a vision to make the most invisible children seen, supported, and truly at home.
           </p>
-          <a href="#" className="text-blue-700 font-semibold hover:underline flex items-center gap-1">
+          {/* <a href="#" className="text-blue-700 font-semibold hover:underline flex items-center gap-1">
             Read More <span aria-hidden="true">&rarr;</span>
-          </a>
+          </a> */}
         </div>
       </div>
       {/* Combined Stats/Map Section */}

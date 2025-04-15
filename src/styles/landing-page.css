@@ -118,6 +118,9 @@ body {
   font-size: 16px;
   font-weight: 500;
 }
+.landing-page-h2-blue {
+  color: var(--primary-blue) !important;
+}
 
 .landing-page .section-title {
   font-size: 55px; /* Updated font size */

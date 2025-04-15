@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ReadMoreLink from "../ReadMoreLink";
 
 export default function About() {
   return (
@@ -60,7 +59,7 @@ export default function About() {
             <p className="about-text">
               Founded by John St. Julien, The Creator Share Foundation is driven by a mission to rescue these vulnerable children and create innovative solutions and infrastructure in the form of our children&apos;s villages and homes. Our aim is to extend love, support, healing, and faith to the most marginalized members of our global community.
             </p>
-            <ReadMoreLink href="#" />
+            {/* <ReadMoreLink href="#" /> */}
           </div>
         </div>
       </div>

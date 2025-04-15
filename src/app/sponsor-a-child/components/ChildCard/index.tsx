@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Box, Text, Image, Flex } from "@chakra-ui/react";
-import { FaCalendar, FaCaretDown, FaCaretUp } from "react-icons/fa";
+import { FaCalendar } from "react-icons/fa";
 import { FaLocationDot, FaPerson } from "react-icons/fa6";
 import { calculateAge } from "@/utils/ageCalculator";
 import { centsToDollars } from "@/utils/currency";
@@ -288,16 +288,25 @@ const ChildCard: React.FC<ChildCardProps> = ({ people, isSelected, id }) => {
                             <RxActivityLog />View Activity
                         </Button>
                         
-                        <Box cursor="pointer" className="flex justify-center items-center mt-4">
+:start_line:291
+-------
+:start_line:291
+-------
+                        <>
+                        {/*
+:start_line:297
+-------
+                        {/* <Box cursor="pointer" className="flex justify-center items-center mt-4">
                             <Text fontSize="base" className="text-[#767070]">
-                                <span 
+                                <span
                                     className="text-[#1C3C8C] cursor-pointer whitespace-nowrap flex items-center gap-1"
                                     onClick={() => setIsLearnMoreOpen(!isLearnMoreOpen)}
                                 >
                                     Learn more about {people.name} {isLearnMoreOpen ? <FaCaretUp /> : <FaCaretDown />}
                                 </span>
                             </Text>
-                        </Box>
+                        </Box> */}
+                        </>
                     </Box>
                 </Box>
             </Flex>

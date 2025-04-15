@@ -24,10 +24,10 @@ const stats = [
 export default function Statistics() {
   return (
     <section className="stats-section w-full bg-[#F5F9FF]">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-8 py-12">
         <div className="stats-container">
           <div>
-            <h2 className="stats-title font-bold mb-10 text-[#FFB700] text-center">Sharing can, and does, change lives</h2>
+            <h2 className="stats-title font-bold text-[#FFB700] text-center">Sharing can, and does, change lives</h2>
             <div className="stats-grid">
               {stats.map((stat, index) => (
                 <div key={index}>

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ReadMoreLink from "./ReadMoreLink";
 
 interface WorkCardProps {
   imageSrc: string;
@@ -26,9 +25,9 @@ export default function WorkCard({ imageSrc, title, description }: WorkCardProps
             {paragraph}
           </p>
         ))}
-        <div className="mt-auto pt-4">
+        {/* <div className="mt-auto pt-4">
           <ReadMoreLink href="#" />
-        </div>
+        </div> */}
       </div>
     </div>
   );
