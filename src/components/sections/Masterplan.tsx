@@ -7,7 +7,7 @@ export default function Masterplan() {
       <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <div className="w-full flex justify-center items-center mb-6">
-            <div className="w-full max-w-[500px] aspect-[5/3] rounded-[2rem] overflow-hidden flex items-center justify-center bg-[#e9ecef]">
+            <div className="relative w-full max-w-[500px] aspect-[5/3] rounded-[2rem] overflow-hidden flex items-center justify-center bg-[#e9ecef]">
               <Image
                 src="/images/masterplan-group.png"
                 alt="Masterplan group photo"
@@ -51,7 +51,7 @@ export default function Masterplan() {
           </div>
         </div>
         <div className="w-full flex justify-center items-center">
-          <div className="w-full max-w-[500px] rounded-[2rem] overflow-hidden flex items-center justify-center">
+          <div className="relative w-full max-w-[500px] rounded-[2rem] overflow-hidden flex items-center justify-center">
             <Image
               src="/images/tanzania-map.png"
               alt="Tanzania map"
