@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Masterplan() {
   return (
@@ -7,11 +8,11 @@ export default function Masterplan() {
         <div>
           <div className="w-full flex justify-center items-center mb-6">
             <div className="w-full max-w-[500px] aspect-[5/3] rounded-[2rem] overflow-hidden flex items-center justify-center bg-[#e9ecef]">
-              <img
+              <Image
                 src="/images/masterplan-group.png"
                 alt="Masterplan group photo"
-                className="w-full h-full object-cover"
-                style={{ display: "block" }}
+                fill
+                className="object-cover"
               />
             </div>
           </div>
@@ -51,11 +52,11 @@ export default function Masterplan() {
         </div>
         <div className="w-full flex justify-center items-center">
           <div className="w-full max-w-[500px] rounded-[2rem] overflow-hidden flex items-center justify-center">
-            <img
+            <Image
               src="/images/tanzania-map.png"
               alt="Tanzania map"
-              className="w-full h-full object-cover"
-              style={{ display: "block" }}
+              fill
+              className="object-cover"
             />
           </div>
         </div>

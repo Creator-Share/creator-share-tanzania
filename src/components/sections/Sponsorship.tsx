@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ReadMoreLink from "../ReadMoreLink";
 import { Button } from "@/components/ui/button"; // Import Button component
 
 const sponsorshipIcons = [

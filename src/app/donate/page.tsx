@@ -19,7 +19,7 @@ const DonatePage = () => {
             Share Your Support With Those Who Need It Most.
           </p>
           <p className="text-lg md:text-xl text-gray-800 max-w-2xl mb-0 text-left md:text-left">
-            We are not keen on the word "donate" here at ShareTanzania. We prefer to see ourselves as a bridge, a bridge between the hearts of those who might want to share, and those on earth today, who truly need those hearts to share. See it as real-time sharing, sharing that provides love, support and alleviates the problems that the children that surround us, have to face.
+            We are not keen on the word &quot;donate&quot; here at ShareTanzania. We prefer to see ourselves as a bridge, a bridge between the hearts of those who might want to share, and those on earth today, who truly need those hearts to share. See it as real-time sharing, sharing that provides love, support and alleviates the problems that the children that surround us, have to face.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ const DonatePage = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-[#222] mb-6 text-left md:text-left">Where Does Your Donation Go?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <Card className="flex items-center justify-center text-center font-semibold text-lg md:text-xl min-h-[100px]">
-              Feathers Tale Children's Village
+              Feathers Tale Children&apos;s Village
             </Card>
             <Card className="flex items-center justify-center text-center font-semibold text-lg md:text-xl min-h-[100px]">
               Angels Gate Center For Street Involved Children
@@ -87,7 +87,7 @@ const DonatePage = () => {
           </div>
           <div className="flex flex-col md:flex-row md:justify-center gap-6 mb-6">
             <Card className="flex-1 flex items-center justify-center text-center font-semibold text-lg md:text-xl min-h-[100px] max-w-xl mx-auto">
-              Uchira Children's Fund
+              Uchira Children&apos;s Fund
             </Card>
           </div>
           <div className="mt-8">
