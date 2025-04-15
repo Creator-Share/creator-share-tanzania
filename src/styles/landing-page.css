@@ -273,14 +273,14 @@ body {
 }
 
 .landing-page .stats-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
+  display: block;
+  gap: 0;
   align-items: center;
 }
 
 @media (min-width: 768px) {
   .landing-page .stats-container {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px 24px;
   }
@@ -294,12 +294,21 @@ body {
 }
 
 .landing-page .stats-title {
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 48px;
   text-align: center;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+  max-width: 100%;
 }
 
+@media (min-width: 480px) {
+  .landing-page .stats-title {
+    font-size: 28px;
+  }
+}
 @media (min-width: 768px) {
   .landing-page .stats-title {
     font-size: 42px;
@@ -355,9 +364,20 @@ body {
 }
 
 .landing-page .sponsorship-section {
-  padding: 80px 0;
-  background: url('/images/sponsorship-background.png') no-repeat center center;
+  padding: 40px 0 0 0;
+  background: url('/images/sponsorship-main.png') no-repeat center center;
   background-size: cover;
+  max-height: none;
+  min-height: 300px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  overflow: visible;
+  padding-bottom: 140px; /* Add bottom padding to prevent overlap */
 }
 
 .landing-page .sponsorship-card {
@@ -365,6 +385,49 @@ body {
   border-radius: 24px;
   padding: 32px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  margin-top: 5rem;
+  position: relative;
+  top: 140px; /* Moved farther down to dangle more */
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1.25rem; /* Added bottom margin for spacing */
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.landing-page .sponsorship-card {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  margin-top: 5rem;
+  position: relative;
+  top: 140px; /* Moved farther down to dangle more */
+  max-width: 600px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1.25rem; /* Added bottom margin for spacing */
+}
+
+@media (max-width: 1024px) {
+  .landing-page .sponsorship-section {
+    align-items: center;
+    min-height: 400px;
+  }
+  .landing-page .sponsorship-card {
+    top: 0;
+    margin-top: 2rem;
+    max-width: 100%;
+  }
+}
+
+.landing-page .sponsorship-card {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  margin-top: 5rem;
 }
 
 .landing-page .sponsorship-icons {

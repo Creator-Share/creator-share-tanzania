@@ -26,16 +26,10 @@ const sponsorshipIcons = [
 
 export default function Sponsorship() {
   return (
-    <section
-      className="sponsorship-section relative py-8 bg-no-repeat bg-center bg-top"
-      style={{
-        backgroundImage: "url('/images/sponsorship-main.png')",
-        backgroundSize: '100% auto',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 flex">
+    <section className="landing-page sponsorship-section flex items-center justify-center min-h-[500px] px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto flex w-full justify-start px-4 sm:px-0">
         {/* Content Card */}
-        <div className="sponsorship-card bg-white rounded-2xl shadow-xl max-w-2xl w-full">
+        <div className="sponsorship-card max-w-2xl w-full mt-20">
           <div className="sponsorship-icons flex flex-wrap justify-start gap-4 mb-6">
             {sponsorshipIcons.map((icon, index) => (
               <div key={index} className={`icon-item flex items-center gap-2 p-2 rounded ${icon.isActive ? 'bg-blue-100' : ''}`}>
