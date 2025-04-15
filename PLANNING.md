@@ -66,4 +66,3 @@ Build a high-quality, production-ready platform to support creators, social impa
 
 ---
 
-_Last updated: 2025-04-07_
