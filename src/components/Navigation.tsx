@@ -59,7 +59,6 @@ export default function Navigation() {
         <Link href="/#about" className="nav-link block py-2">About Us</Link>
         <Link href="/#work" className="nav-link block py-2">Our Work</Link>
         <Link href="/#share" className="nav-link block py-2">Ways to Share</Link>
-        <Link href="/sponsor-a-child" className="nav-link block py-2">Sponsor a Child</Link>
         <Link href="/donate" className="donate-button inline-block mt-2">Donate</Link>
       </div>
     </nav>

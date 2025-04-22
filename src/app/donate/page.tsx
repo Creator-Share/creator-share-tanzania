@@ -56,23 +56,37 @@ const DonatePage = () => {
         {/* Bank Transfer Section */}
         <Card className="mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-[var(--primary-blue)] mb-2 text-left md:text-left">
-            Direct Bank Transfers and International Bank Transfers
+            Bank Transfers
           </h2>
-          <div className="mb-2">
-            <span className="font-bold">Account Holder:</span>
-            <div className="ml-2">
-              HSBC Bank<br />
-              The Creator Share Foundation<br />
-              Sort Code: 40-16-15<br />
-              Account number: 14328329
+          <div className="mb-4">
+            <h3 className="text-xl font-semibold text-[var(--primary-blue)] mb-2">US Based Transfers</h3>
+            <div className="mb-2">
+              <span className="font-bold">Bank of America</span>
+              <div className="ml-2">
+                Account number: 138134389598<br />
+                Routing number for paper and electronic: 125000024<br />
+                Routing number for wire transfers: 026009593
+              </div>
             </div>
           </div>
-          <div className="mb-2">
-            <span className="font-bold">IBAN</span> - GB56HBUK40161514328329<br />
-            <span className="font-bold">SWIFT</span> - HBUKGB4103K
-          </div>
-          <div className="mb-2">
-            Bank Address - 1 Centenary Square, Birmingham, B11HQ, United Kingdom
+          <div className="mb-4">
+            <h3 className="text-xl font-semibold text-[var(--primary-blue)] mb-2">International Transfers</h3>
+            <div className="mb-2">
+              <span className="font-bold">Account Holder:</span>
+              <div className="ml-2">
+                HSBC Bank<br />
+                The Creator Share Foundation<br />
+                Sort Code: 40-16-15<br />
+                Account number: 14328329
+              </div>
+            </div>
+            <div className="mb-2">
+              <span className="font-bold">IBAN</span> - GB56HBUK40161514328329<br />
+              <span className="font-bold">SWIFT</span> - HBUKGB4103K
+            </div>
+            <div className="mb-2">
+              Bank Address - 1 Centenary Square, Birmingham, B11HQ, United Kingdom
+            </div>
           </div>
         </Card>
 
